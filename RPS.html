@@ -1,0 +1,118 @@
+<html>
+<body>
+<script>
+//take a user input of rock, paper, or scissors.:
+
+let selection = ["r", "p", "s"];
+
+let result = ["draw", "win", "lose"];
+//                       r=0 p=1 s=2
+let winMatrix = /*r=0*/ [[0,  2,  1], 
+                /*p=1*/  [1,  0,  2], 
+                /*s=2*/  [2,  1,  0]];
+
+function playerPlay() {
+    let input = prompt("rock, paper, or scissors");
+    let inputLowerCase = input.toLowerCase();
+    let inputLetter = inputLowerCase.substring(0,1);
+    let playerSelection = selection.indexOf(inputLetter);
+    return playerSelection
+}
+
+//Create a function that has the computer pull rock, paper, or scissors at random.:
+function computerPlay(){
+    let random = Math.floor(Math.random()*selection.length);
+    return random;
+}
+//Create a function that compares the two inputs
+
+function playRound (player, computer) {
+
+//use the player and computer input to select from the winmatrix lookup table
+let inputResult = winMatrix[player][computer];
+//use the result oof the winMatrix lookup table to select form the results array
+let finalResult = result[inputResult];
+
+//return result[winMatrix[player][computer]];
+
+return finalResult;
+
+}
+
+function repeatableRound () {
+    let playerResult = playerPlay();
+    let computerResult = computerPlay();
+    let playerChoice = selection[playerResult];
+    let computerChoice = selection[computerResult];
+    console.log(`player: ${playerChoice}, computer: ${computerChoice}`);
+    let finalResult = playRound(playerResult, computerResult);
+    console.log (finalResult);
+    return finalResult
+}
+let playerScore = 0
+let computerScore = 0
+
+while (playerScore < 5 && computerScore < 5) {
+    let game = repeatableRound();
+    if (game === "win") {
+        playerScore++ ;
+        console.log(playerScore, computerScore);
+    }
+    else if (game === "lose") {
+        computerScore++;
+        console.log(playerScore, computerScore);
+    }
+}
+if (playerScore === 5) {
+    console.log("WINNER WINNNER CHICKEN DINNER!");
+}
+if (computerScore === 5) {
+    console.log('Better luck next time!');
+}
+
+
+//let playerResult = playerPlay();
+//let computerResult = computerPlay();
+//let playerChoice = selection[playerResult];
+//let computerChoice = selection[computerResult];
+
+//console.log(`player: ${playerChoice}, computer: ${computerChoice}`);
+
+//let finalResult = playRound(playerResult, computerResult);
+
+//console.log(finalResult);
+//create a function that tracks the wins of the player and computer up until 5, then declares a winner:
+/*let playerScore = 0;
+let computerScore = 0;
+
+if (finalResult === "win") {
+    playerScore++;
+    let platerResult = playerPlay();
+    let computerResult = computerPlay();
+    playRound(playerResult, computerResult);
+    console.log(`player: ${playerChoice}, computer: ${computerChoice}`);
+}
+if (finalResult === "lose") {
+    computerScore++;
+    let platerResult = playerPlay();
+    let computerResult = computerPlay();
+    playRound(playerResult, computerResult);
+    console.log(`player: ${playerChoice}, computer: ${computerChoice}`);
+}
+if (finalResult === "draw") {
+    let platerResult = playerPlay();
+    let computerResult = computerPlay();
+    playRound(playerResult, computerResult);
+    console.log(`player: ${playerChoice}, computer: ${computerChoice}`);
+}
+if (playerScore === 5) {
+    console.log("You WIN");
+}
+if (computerScore === 5) {
+    console.log ("You LOSE")
+}*/
+
+
+</script>
+</body>
+</html>
