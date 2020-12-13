@@ -28,14 +28,14 @@ function computerPlay(){
 
 function playRound (player, computer) {
 
-//use the player and computer input to select from the winmatrix lookup table
-let inputResult = winMatrix[player][computer];
-//use the result oof the winMatrix lookup table to select form the results array
-let finalResult = result[inputResult];
+    //use the player and computer input to select from the winmatrix lookup table
+    let inputResult = winMatrix[player][computer];
+    //use the result oof the winMatrix lookup table to select form the results array
+    let finalResult = result[inputResult];
 
-//return result[winMatrix[player][computer]];
+    //return result[winMatrix[player][computer]];
 
-return finalResult;
+    return finalResult;
 
 }
 
@@ -52,6 +52,7 @@ function repeatableRound () {
 let playerScore = 0
 let computerScore = 0
 
+
 while (playerScore < 5 && computerScore < 5) {
     let game = repeatableRound();
     if (game === "win") {
@@ -64,55 +65,11 @@ while (playerScore < 5 && computerScore < 5) {
     }
 }
 if (playerScore === 5) {
-    console.log("WINNER WINNNER CHICKEN DINNER!");
+    console.log("WINNER WINNER CHICKEN DINNER!");
 }
 if (computerScore === 5) {
     console.log('Better luck next time!');
 }
-
-
-//let playerResult = playerPlay();
-//let computerResult = computerPlay();
-//let playerChoice = selection[playerResult];
-//let computerChoice = selection[computerResult];
-
-//console.log(`player: ${playerChoice}, computer: ${computerChoice}`);
-
-//let finalResult = playRound(playerResult, computerResult);
-
-//console.log(finalResult);
-//create a function that tracks the wins of the player and computer up until 5, then declares a winner:
-/*let playerScore = 0;
-let computerScore = 0;
-
-if (finalResult === "win") {
-    playerScore++;
-    let platerResult = playerPlay();
-    let computerResult = computerPlay();
-    playRound(playerResult, computerResult);
-    console.log(`player: ${playerChoice}, computer: ${computerChoice}`);
-}
-if (finalResult === "lose") {
-    computerScore++;
-    let platerResult = playerPlay();
-    let computerResult = computerPlay();
-    playRound(playerResult, computerResult);
-    console.log(`player: ${playerChoice}, computer: ${computerChoice}`);
-}
-if (finalResult === "draw") {
-    let platerResult = playerPlay();
-    let computerResult = computerPlay();
-    playRound(playerResult, computerResult);
-    console.log(`player: ${playerChoice}, computer: ${computerChoice}`);
-}
-if (playerScore === 5) {
-    console.log("You WIN");
-}
-if (computerScore === 5) {
-    console.log ("You LOSE")
-}*/
-
-
 </script>
 </body>
 </html>
